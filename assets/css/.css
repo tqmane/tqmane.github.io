@@ -1,0 +1,62 @@
+@font-face {
+	font-family: 'Custom Font';
+	src: url(../../assets/fonts/-1bc6487f30621ba07c960f31362759b6.woff2) format('woff2'),
+	url(../../assets/fonts/-f015a32414a92b511f323e75abe084fe.woff) format('woff');
+	font-weight: 200;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Custom Font';
+	src: url(../../assets/fonts/-db710b613615ffaae74393114e478929.woff2) format('woff2'),
+	url(../../assets/fonts/-2106894afe2a7423c69967c3198e8341.woff) format('woff');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Custom Font';
+	src: url(../../assets/fonts/-b3adb504b8232aa72a5d4f8fe90cdbcf.woff2) format('woff2'),
+	url(../../assets/fonts/-7f299bd7758eb7a134c663d64c45476b.woff) format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Custom Font';
+	src: url(../../assets/fonts/-d3acea65bbe39bf55923da9c0502937d.woff2) format('woff2'),
+	url(../../assets/fonts/-a71c97bc6c48e1d80457abb95c5c57fc.woff) format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Custom Font';
+	src: url(../../assets/fonts/-fa20165dea59e42b49e5c477a18bc4b2.woff2) format('woff2'),
+	url(../../assets/fonts/-8d9f247b6c9f90ecfc700e1f69dfe1b3.woff) format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Custom Font';
+	src: url(../../assets/fonts/-f7c0b4ad72bb247d1323277eb141f1b3.woff2) format('woff2'),
+	url(../../assets/fonts/-f17429009e97af6eddccce6316b35558.woff) format('woff');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Custom Font';
+	src: url(../../assets/fonts/-1367feefaac51652b2be80c7f9d082a0.woff2) format('woff2'),
+	url(../../assets/fonts/-e04935f085ff2d49825487ea06380ba1.woff) format('woff');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
