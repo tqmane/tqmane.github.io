@@ -1,0 +1,107 @@
+@font-face {
+	font-family: 'SFMono';
+	src: url(../../assets/fonts/SFMono-2b229363289b2b0eb0179ebad4f73b1b.woff2) format('woff2'),
+	url(../../assets/fonts/SFMono-62908f12fdc99a9425ec6a0b6f138a53.woff) format('woff');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SFMono';
+	src: url(../../assets/fonts/SFMono-468e0e722fed7568f3d5f6b823a817ff.woff2) format('woff2'),
+	url(../../assets/fonts/SFMono-a9d12a3d4b873964396a60b784a2f307.woff) format('woff');
+	font-weight: 300;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SFMono';
+	src: url(../../assets/fonts/SFMono-c9dc1bbe6978d29283b52e0e98df407e.woff2) format('woff2'),
+	url(../../assets/fonts/SFMono-1a407ad6eb6437271bbe3325510d3e98.woff) format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SFMono';
+	src: url(../../assets/fonts/SFMono-476c4f9915a850cf7c6db3a7106bf529.woff2) format('woff2'),
+	url(../../assets/fonts/SFMono-13fad64888b21f9945926d99b71e0377.woff) format('woff');
+	font-weight: normal;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SFMono';
+	src: url(../../assets/fonts/SFMono-20267f962db63fd17d94ac818c0edb44.woff2) format('woff2'),
+	url(../../assets/fonts/SFMono-88888bbd4a0f9ff0a57107e712e57935.woff) format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SFMono';
+	src: url(../../assets/fonts/SFMono-cb156c130a2e3d525833628b5b83ff07.woff2) format('woff2'),
+	url(../../assets/fonts/SFMono-32a7c9ea00a3adb52b174ae141f477fc.woff) format('woff');
+	font-weight: 500;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SFMono';
+	src: url(../../assets/fonts/SFMono-c59c8b8684d77781d563d3ff73b722aa.woff2) format('woff2'),
+	url(../../assets/fonts/SFMono-39d1961a4a2b76ee4c91218294ebb498.woff) format('woff');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SFMono';
+	src: url(../../assets/fonts/SFMono-6a874b2a376e36f507bfb76cf72d9d8e.woff2) format('woff2'),
+	url(../../assets/fonts/SFMono-a68e00373c515892136df307a9f416f0.woff) format('woff');
+	font-weight: 600;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SFMono';
+	src: url(../../assets/fonts/SFMono-022f23df7e43eea32f649adf5b20ffae.woff2) format('woff2'),
+	url(../../assets/fonts/SFMono-e780144dd491e964b306bc4852beb615.woff) format('woff');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SFMono';
+	src: url(../../assets/fonts/SFMono-f5b6575a93b899e1977102c047653c2a.woff2) format('woff2'),
+	url(../../assets/fonts/SFMono-ae1849063b049cdffce40b8a2eeb07a2.woff) format('woff');
+	font-weight: bold;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SFMono';
+	src: url(../../assets/fonts/SFMono-076c93e20aec00e74b49f21f23ad11f7.woff2) format('woff2'),
+	url(../../assets/fonts/SFMono-3e397b61bc7be7d95e6ffcc617af346a.woff) format('woff');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SFMono';
+	src: url(../../assets/fonts/SFMono-b2d1f586bb4b0d1ada4341917ce2b32f.woff2) format('woff2'),
+	url(../../assets/fonts/SFMono-2def8201a86e7d0b28a79df46a6b8658.woff) format('woff');
+	font-weight: 900;
+	font-style: italic;
+	font-display: swap;
+}
