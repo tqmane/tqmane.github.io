@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=BIZ+UDPGothic&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dela+Gothic+One&amp;display=swap">
     <link rel="stylesheet" href="assets/css/SFMono.css">
+    <link rel="stylesheet" href="assets/css/Bold-BS4-Animated-Back-To-Top.css">
     <link rel="stylesheet" href="assets/css/Navbar-Centered-Links-icons.css">
     <link rel="stylesheet" href="assets/css/untitled-1.css">
     <link rel="stylesheet" href="assets/css/untitled.css">
@@ -52,29 +53,34 @@
         </div>
     </nav>
     <div class="col-xxl-12" style="height: 436.2px;width: auto;margin: 0px;">
-        <div class="container" style="height: 142.1979px;">
-            <p style="font-size: 28px;margin: -4px;"><strong>Setup your environment</strong></p>
-            <p style="margin: 0px;background: #e4e4e4;width: auto;border-top-left-radius: 10px;border-top-right-radius: 10px;">&nbsp;&nbsp;<strong>Table of content</strong></p>
-            <ul style="background: #e4e4e4;width: auto;border-bottom-right-radius: 10px;border-bottom-left-radius: 10px;height: auto;">
+        <div class="container" style="height: 142.1979px;"><a href="doc.html">&lt; Back to Previous Page</a>
+            <p style="font-size: 26px;margin: 3px;"><strong>Setup your environment</strong></p>
+            <p style="margin: 0px;background: #f2f2f2;width: auto;border-top-left-radius: 5px;border-top-right-radius: 5px;font-size: 17px;font-family: 'BIZ UDPGothic', sans-serif;padding: 2px;"><strong>&nbsp;Table of content</strong></p>
+            <ul style="background: #f2f2f2;width: auto;border-bottom-right-radius: 5px;border-bottom-left-radius: 5px;height: auto;">
                 <li><a href="#what-youll-need"><span style="color: rgb(0, 0, 0);">What you’ll need</span></a></li>
-                <li>Build OS<ul>
-                        <li>Install the platform-tools</li>
-                        <li>Install the build packages</li>
+                <li><a href="#Build-OS" style="color: var(--bs-emphasis-color);"><span style="color: rgb(0, 0, 0);">Build OS</span></a>
+                    <ul>
+                        <li><a href="#install-the-platform-tools" style="color: var(--bs-emphasis-color);">Install the platform-tools</a></li>
+                        <li><a href="#install-the-build-packages" style="color: var(--bs-emphasis-color);">Install the build packages</a>
+                            <ul><a href="#install-the-build-packages" style="color: var(--bs-emphasis-color);"></a>
+                                <li><a href="#install-the-build-packages" style="color: var(--bs-emphasis-color);"></a><a href="#java" style="color: var(--bs-emphasis-color);">Java</a></li>
+                                <li><a href="#python" style="color: var(--bs-emphasis-color);">Python</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
-                <li>Create the directories</li>
-                <li>Install the command&nbsp;<code style="color: var(--bs-success);background: rgba(205,205,205,0);">repo</code></li>
-                <li>Put the directory in your path of execution&nbsp;<code style="color: var(--bs-success);background: rgba(205,205,205,0);">~/bin</code></li>
-                <li>Create the directories</li>
-                <li>Configure git</li>
-                <li>Initialize the source repository</li>
-                <li>Download the source code</li>
-                <li>Start the build</li>
-                <li style="height: 28.5938px;">Install the build</li>
+                <li><a href="#create-the-directories" style="color: var(--bs-emphasis-color);">Create the directories</a></li>
+                <li><a href="#install-the-repo-command" style="color: var(--bs-emphasis-color);">Install the <code style="color: var(--bs-success);background: rgba(205,205,205,0);">repo</code>&nbsp;command&nbsp;</a></li>
+                <li><a href="#put-the-bin-directory-in-your-path" style="color: var(--bs-emphasis-color);">Put the&nbsp;<code style="color: var(--bs-success);background: rgba(205,205,205,0);">~/bin</code> directory in your path of execution&nbsp;</a></li>
+                <li><a href="#configure-git" style="color: var(--bs-emphasis-color);">Configure git</a></li>
+                <li><a href="#initialize-the-os-source-repository" style="color: var(--bs-emphasis-color);">Initialize the OS repository</a></li>
+                <li><a href="#download-the-source-code" style="color: var(--bs-emphasis-color);">Download the source code</a></li>
+                <li><a href="#" style="color: var(--bs-emphasis-color);">Start the build</a></li>
+                <li style="height: 30.6px;"><a href="#install-the-build" style="color: var(--bs-emphasis-color);">Install the build</a></li>
             </ul>
             <div class="col-sm-10" style="margin: 0;width: auto;height: auto;">
                 <div class="container">
-                    <p id="what-youll-need" style="margin:6px 0px 0px;font-size:30px;" title="What's you'll need">What's you'll need</p>
+                    <h3 id="what-youll-need" style="margin: 20px 0px 10px;">What's you'll need</h3>
                     <ul>
                         <li>OEM unlocked device</li>
                         <li>A relatively recent x86_64 computer:<br>
@@ -87,13 +93,155 @@
                         <li>Some familiarity with basic Android operation and terminology. It may be useful to know some basic command line concepts such as , which stands for “change directory”, the concept of directory hierarchies, and that in Linux they are separated by , etc.&nbsp;<code style="color: var(--bs-success);">cd, vim, rm, git</code></li>
                     </ul>
                     <p>TIP: If you are not accustomed to using Linux, this is an excellent chance to learn. It’s free – just download and run a virtual machine (VM) such as VirtualBox, then install a Linux distribution such as Ubuntu (AOSP vets Ubuntu as well). Any recent 64-bit version should work great, but the latest Long Term Support (LTS) version is recommended. There are plenty of instructions on setting up Virtua</p>
+                    <div class="alert alert-success" role="alert"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-check" style="margin: 0px 0px 2px;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M5 12l5 5l10 -10"></path>
+                        </svg><span><strong>TIP</strong>: If you are not accustomed to using Linux, this is an excellent chance to learn. It’s free – just download and run a virtual machine (VM) such as VirtualBox, then install a Linux distribution such as Ubuntu (AOSP vets Ubuntu as well). Any recent 64-bit version should work great, but the latest Long Term Support (LTS) version is recommended. There are plenty of instructions on setting up VirtualBox&nbsp;</span></div>
+                    <h2 id="Build-OS" style="margin: 20px 0px 10px;">Build OS</h2>
+                    <div class="alert alert-success" role="alert" style="background: rgb(228,243,255);border-color: rgb(168,202,255);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="margin: 0px 0px 3px;">
+                            <path d="M11 10.9794C11 10.4271 11.4477 9.97937 12 9.97937C12.5523 9.97937 13 10.4271 13 10.9794V16.9794C13 17.5317 12.5523 17.9794 12 17.9794C11.4477 17.9794 11 17.5317 11 16.9794V10.9794Z" fill="currentColor"></path>
+                            <path d="M12 6.05115C11.4477 6.05115 11 6.49886 11 7.05115C11 7.60343 11.4477 8.05115 12 8.05115C12.5523 8.05115 13 7.60343 13 7.05115C13 6.49886 12.5523 6.05115 12 6.05115Z" fill="currentColor"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12Z" fill="currentColor"></path>
+                        </svg><span style="color: rgb(37,115,132);"><strong>NOTE</strong>: You only need to do these steps once. If you have already prepared your build environment and downloaded the source code, skip to Prepare the device-specific code</span></div>
+                    <h4 id="install-the-platform-tools">Install the platform-tools</h4>
+                    <p>If you haven’t previously installed&nbsp;<code style="font-size: 16px;color: var(--bs-success);">adb</code> and&nbsp;<code style="font-size: 16px;color: var(--bs-success);">fastboot</code>, you can&nbsp;<a href="#" style="color: rgba(0,56,255,0.87);" data-bs-target="https://dl.google.com/android/repository/platform-tools-latest-linux.zip">download them from google</a>. Extract it running:<br></p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-body-color);">unzip platform-tools-latest-linux.zip -d ~</code></p>
                     <div class="alert alert-success" role="alert"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-check">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                             <path d="M5 12l5 5l10 -10"></path>
-                        </svg><span><strong>TIP:</strong> If you are not accustomed to using Linux, this is an excellent chance to learn. It’s free – just download and run a virtual machine (VM) such as VirtualBox, then install a Linux distribution such as Ubuntu (AOSP vets Ubuntu as well). Any recent 64-bit version should work great, but the latest Long Term Support (LTS) version is recommended. There are plenty of instructions on setting up VirtualBox&nbsp;</span></div>
+                        </svg><span><strong>TIP</strong>: The file may not be named identically to what stands in this command, so adjust accordingly.</span></div>
+                    <p>Now you have to add&nbsp;<code style="font-size: 16px;color: var(--bs-success);">adb</code> and&nbsp;<code style="font-size: 16px;color: var(--bs-success);">fastboot</code> to your PATH. Open&nbsp;<code style="font-size: 16px;color: var(--bs-success);">~/.profile</code>&nbsp;and add the following:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-body-color);"># add Android SDK platform tools to path<br>if [ -d "$HOME/platform-tools" ] ; then<br>&nbsp; PATH="$HOME/platform-tools:$PATH"<br>fi</code></p>
+                    <p>Then, run source&nbsp;<code style="font-size: 16px;color: var(--bs-success);">~/.profile</code> to update your environment.</p>
+                    <h3 id="install-the-build-packages" style="margin: 20px 0px 10px;">Install the build packages</h3>
+                    <p>Several packages are needed to build LineageOS. You can install these using your distribution’s package manager.</p>
+                    <div class="alert alert-success" role="alert"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-check" style="margin: 0px 0px 2px;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M5 12l5 5l10 -10"></path>
+                        </svg><span style="color: rgb(0, 73, 48);"><strong>TIP</strong>: A&nbsp;<a class="alert-link" href="https://en.wikipedia.org/wiki/Package_manager"><span style="font-weight: normal !important;">package manager</span></a> in Linux is a system used to install or remove software (usually originating from the Internet) on your computer. With Ubuntu, you can use the Ubuntu Software Center. Even better, you may also use the&nbsp;<code style="font-size: 16px;color: rgb(0,73,48);background: rgb(198,218,211);border-radius: 2px;">apt get install</code>&nbsp;command directly in the Terminal.</span></div>
+                    <p>To build LineageOS and others, you’ll need:</p>
+                    <ul>
+                        <li><code style="font-size: 16px;color: var(--bs-success);">bc bison build-essential ccache curl flex g++-multilib gcc-multilib git git-lfs gnupg gperf imagemagick lib32readline-dev lib32z1-dev </code></li>
+                        <li><code style="font-size: 16px;color: var(--bs-success);">libelf-dev liblz4-tool libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev</code></li>
+                    </ul>
+                    <p>To install these packages:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">sudo apt install <span style="color: rgb(0, 183, 121);">&lt;package names&gt; &lt;package names&gt; and so on...</span></code></p>
+                    <p>For Ubuntu 23.10 (mantic), install&nbsp;<code style="font-size: 16px;">libncurses5</code> from 23.04 (lunar) as follows:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">wget http://archive.ubuntu.com/ubuntu/pool/universe/n/ncurses/libtinfo5_6.4-2_amd64.deb &amp;&amp; sudo dpkg -i libtinfo5_6.4-2_amd64.deb &amp;&amp; rm -f libtinfo5_6.4-2_amd64.deb<br>wget http://archive.ubuntu.com/ubuntu/pool/universe/n/ncurses/libncurses5_6.4-2_amd64.deb &amp;&amp; sudo dpkg -i libncurses5_6.4-2_amd64.deb &amp;&amp; rm -f libncurses5_6.4-2_amd64.deb</code></p>
+                    <p>While for Ubuntu versions older than 23.10 (mantic), simply install:</p>
+                    <ul>
+                        <li><code style="color: var(--bs-success);font-size: 16px;">lib32ncurses5-dev libncurses5 libncurses5-dev</code></li>
+                    </ul>
+                    <ul></ul>
+                    <p>Additionally, for Ubuntu versions older than 20.04 (focal), install also:</p>
+                    <ul>
+                        <li><code style="color: var(--bs-success);font-size: 16px;">libwxgtk3.0-dev</code></li>
+                    </ul>
+                    <p>While for Ubuntu versions older than 16.04 (xenial), install:</p>
+                    <ul>
+                        <li><code style="color: var(--bs-success);font-size: 16px;">libwxgtk2.8-dev</code></li>
+                    </ul>
+                    <p>To build CherishOS, you'll need:</p>
+                    <p style="margin: -10px 30px 3px;">Install JDK 8:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">sudo apt install openjdk-8-jdk</code></p>
+                    <p style="margin: -10px 30px 3px;">Tested on Ubuntu 16.04,16.10,17.04,18.04,18.10,19.04,21.04,22.04:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">sudo apt install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev</code></p>
+                    <p style="margin: -10px 30px 3px;">Tested on Ubuntu 20.04:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">sudo apt install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libncurses5 libsdl1.2-dev libssl-dev libwxgtk3.0-gtk3-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev</code></p>
+                    <p>To build CrDroid, you'll need:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">sudo apt install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git git-lfs gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5 libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-gtk3-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev</code></p>
+                    <h4 id="java" style="margin: 20px 0px 10px;">Java</h4>
+                    <p>Different versions of LineageOS require different JDK (Java Development Kit) versions.</p>
+                    <ul>
+                        <li>Android11+: OpenJDK 11 (included in source download)</li>
+                        <li>Android9-10: OpenJDK 1.9 (included in source download)</li>
+                        <li>Androi7-8: OpenJDK 1.8 (install&nbsp;<code style="font-size: 16px;color: var(--bs-success);">openjdk-8-jdk</code>)<ul>
+                                <li>NOTE: For building these versions you’ll need to remove&nbsp;<code style="font-size: 16px;color: var(--bs-success);">TLSv1</code>&nbsp;and&nbsp;<code style="color: var(--bs-success);font-size: 16px;">TLSv1.1</code> from&nbsp;<code style="color: var(--bs-success);font-size: 16px;">jdk.tls.disabledAlgorithms</code> in <code style="font-size: 16px;color: var(--bs-success);">/etc/java-8-openjdk/security/java.security</code>.</li>
+                            </ul>
+                        </li>
+                        <li>Android4-6: OpenJDK 1.7 (install&nbsp;<code style="font-size: 16px;color: var(--bs-success);">openjdk-7-jdk</code>)*</li>
+                    </ul>
+                    <p>* Ubuntu 16.04 and newer do not have OpenJDK 1.7 in the standard package repositories. See the Ask Ubuntu question <a href="https://askubuntu.com/questions/761127/how-do-i-install-openjdk-7-on-ubuntu-16-04-or-higher" style="color: rgba(0,56,255,0.87);">“How do I install openjdk 7 on Ubuntu 16.04 or higher?”</a>. Note that the suggestion to use PPA openjdk-r is outdated (the PPA has never updated their offering of openjdk-7-jdk, so it lacks security fixes); skip that answer even if it is the most upvoted.</p>
+                    <h4 id="python" style="margin: 20px 0px 10px;">Python</h4>
+                    <p>Different versions of LineageOS require different default Python versions.</p>
+                    <ul>
+                        <li>Android10+: Python 3 (install <code style="font-size: 16px;color: var(--bs-success);">python-is-python3</code>)</li>
+                        <li>Android4-9: Python 2 (install <code style="font-size: 16px;color: var(--bs-success);">python-is-python2</code>)</li>
+                    </ul>
+                    <p>If your default is <code style="font-size: 16px;color: var(--bs-success);">python3</code>, but you’re building branch that requires <code style="font-size: 16px;color: var(--bs-success);">python2</code>, there are various methods to using it, e.g. <a href="https://stackoverflow.com/questions/61486624/python-is-python-2-package-something-new/66129356#66129356" style="color: rgba(0,56,255,0.87);">symlinking it manually</a>&nbsp;or creating a&nbsp;<a href="https://pypi.org/project/virtualenv/" style="color: rgba(0,56,255,0.87);">virtualenv</a>&nbsp;for it. We recommend the latter:</p>
+                    <p>Generate the virtualenv once using <code style="font-size: 16px;color: var(--bs-success);">virtualenv --python=python2 ~/.lineage_venv</code>. Afterwards, activate it in each terminal where you need <code style="font-size: 16px;color: var(--bs-success);">python2</code>&nbsp;as default by running <code style="font-size: 16px;color: var(--bs-success);">~/.lineage_venv/bin/activate</code>~/.lineage_venv/bin/activate.</p>
+                    <p>The path <code style="font-size: 16px;color: var(--bs-success);">~/.lineage_venv</code>&nbsp;can be chosen freely, this is just an example!</p>
+                    <h3 id="create-the-directories" style="margin: 20px 0px 10px;">Create the directories</h3>
+                    <p style="background: #f2f2f2;border-radius: 5px;line-height: 60px;"></p>
+                    <p>You’ll need to set up some directories in your build environment.</p>
+                    <p>To create them:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">mkdir -p ~/bin<br>mkdir -p ~/android/workspace</code></p>
+                    <p>The <code style="font-size: 16px;color: var(--bs-success);">~/bin</code>&nbsp;directory will contain the git-repo tool (commonly named “repo”) and the <code style="font-size: 16px;color: var(--bs-success);">~/android/workspace</code>&nbsp;directory will contain the source code of OS that you want to build.</p>
+                    <h3 id="install-the-repo-command" style="margin: 20px 0px 10px;">Install the <code style="color: var(--bs-success);">repo</code>&nbsp;command</h3>
+                    <p>Enter the following to download the&nbsp;<code style="font-size: 16px;color: var(--bs-success);">repo</code>&nbsp;binary and make it executable (runnable):</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">curl https://storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo<br>chmod a+x ~/bin/repo</code></p>
+                    <h3 id="put-the-bin-directory-in-your-path" style="margin: 20px 0px 10px;">Put the&nbsp;<code style="color: var(--bs-success);">~/bin</code> directory in your path</h3>
+                    <p>In recent versions of Ubuntu, &nbsp;<code style="font-size: 16px;color: var(--bs-success);">~/bin</code>&nbsp;should already be in your PATH. You can check this by opening&nbsp;<code style="font-size: 16px;color: var(--bs-success);">~/.profile</code>&nbsp;with a text editor and verifying the following code exists <strong>(add it if it is missing)</strong>:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);"># set PATH so it includes user's private bin if it exists<br>if [ -d "$HOME/bin" ] ; then<br>&nbsp;&nbsp;PATH="$HOME/bin:$PATH"<br>fi</code></p>
+                    <p>Then, run&nbsp;<code style="font-size: 16px;color: var(--bs-success);">source ~/.profile</code> to update your environment.</p>
+                    <h3 id="configure-git" style="margin: 20px 0px 10px;">Configure git</h3>
+                    <p>Given that&nbsp;<code style="font-size: 16px;color: var(--bs-success);">repo</code> requires you to identify yourself to sync Android, run the following commands to configure your&nbsp;<code style="font-size: 16px;color: var(--bs-success);">git</code>&nbsp;identity:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">git config --global user.email "you@example.com"<br>git config --global user.name "Your Name"</code></p>
+                    <p>Due to their size, some repos are configured for&nbsp;<a href="https://git-lfs.com/" style="color: rgba(0,56,255,0.87);">Lfs: Large File Storage</a>. To make sure your distribution is prepared for this, run:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">git lfs install</code></p>
+                    <p>To avoid duplicated <code style="font-size: 16px;color: var(--bs-success);">Change-ID:</code> trailers in commit messages, especially when cherry-picking changes, make <code style="font-size: 16px;color: var(--bs-success);">Change-ID:</code>&nbsp;a known trailer to git:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">git config --global trailer.changeid.key "Change-Id"</code></p>
+                    <h3 id="initialize-the-os-source-repository" style="margin: 20px 0px 10px;">Initialize the OS source repository</h3>
+                    <p>Enter the following to initialize the repository:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;line-height: 60px;"></p>
+                    <div class="alert alert-success" role="alert" style="background: rgb(228,243,255);border-color: rgb(168,202,255);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="margin: 0px 0px 3px;">
+                            <path d="M11 10.9794C11 10.4271 11.4477 9.97937 12 9.97937C12.5523 9.97937 13 10.4271 13 10.9794V16.9794C13 17.5317 12.5523 17.9794 12 17.9794C11.4477 17.9794 11 17.5317 11 16.9794V10.9794Z" fill="currentColor"></path>
+                            <path d="M12 6.05115C11.4477 6.05115 11 6.49886 11 7.05115C11 7.60343 11.4477 8.05115 12 8.05115C12.5523 8.05115 13 7.60343 13 7.05115C13 6.49886 12.5523 6.05115 12 6.05115Z" fill="currentColor"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12Z" fill="currentColor"></path>
+                        </svg><span style="color: rgb(37,115,132);"><strong>NOTE</strong>: Make sure the branch you enter here is the one you wish to build!</span></div>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">cd ~/android/workspace</code></p>
+                    <p>LineageOS:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">repo init -u https://github.com/LineageOS/android.git -b &lt;branch&gt; --git-lfs</code></p>
+                    <p>PixelExperience:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">repo init -u https://github.com/PixelExperience/manifest -b &lt;branch&gt;</code></p>
+                    <p>EvolutionX:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">repo init -u https://github.com/Evolution-X/manifest -b &lt;branch&gt;</code></p>
+                    <p>VoltageOS:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">repo init -u https://github.com/VoltageOS/manifest.git -b &lt;branch&gt; --git-lfs</code></p>
+                    <p>CrDroid:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">repo init -u https://github.com/crdroidandroid/android.git -b &lt;branch&gt; --git-lfs</code></p>
+                    <p>CherishOS:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">repo init -u https://github.com/CherishOS/android_manifest.git -b &lt;branch&gt;</code></p>
+                    <p>ProjectElixir:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">repo init -u https://github.com/Project-Elixir/manifest -b &lt;branch&gt;</code></p>
+                    <p><strong>For ROMs other than those listed above, or for more detailed information, information can be found on the respective Github pages.</strong></p>
+                    <h3 id="download-the-source-code" style="margin: 20px 0px 10px;">Download the source code</h3>
+                    <p>To start the download of the source code to your computer, type the following:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags</code></p>
+                    <p>If the task does not complete due to 408 or other error code, reduce the number after&nbsp;<code style="font-size: 16px;color: var(--bs-success);">-j</code>.</p>
+                    <h3 id="start-the-build">Start the build</h3>
+                    <p>Time to start building! Now, type:</p>
+                    <p>LineageOS:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">source build/envsetup.sh<br>brunch lineage_&lt;device code name&gt;-userdebug</code></p>
+                    <p>PixelExperience:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">. build/envsetup.sh<br>lunch aosp_&lt;device code name&gt;-userdebug<br>mka bacon</code></p>
+                    <p>EvolutionX:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">. build/envsetup.sh<br>lunch evolution_&lt;device code name&gt;-userdebug<br>mka evolution</code></p>
+                    <p>VoltageOS:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">. build/envsetup.sh<br>brunch voltage_&lt;device code name&gt;-userdebug</code></p>
+                    <p>CrDroid:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">. build/envsetup.sh<br>lunch lineage_&lt;device code name&gt;-userdebug<br>m bacon</code></p>
+                    <p>CherishOS:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">. build/envsetup.sh<br>brunch cherish_&lt;device code name&gt;-userdebug</code></p>
+                    <p>ProjectElixir:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">. build/envsetup.sh<br>lunch aosp_&lt;device code name&gt;-userdebug<br>m bacon</code></p>
+                    <h2 id="install-the-build">Install the build</h2>
+                    <p>Assuming the build completed without errors (it will be obvious when it finishes), <br>You can find rom files in&nbsp;<code style="font-size: 16px;color: var(--bs-success);">~/android/workspace/out/target/product/</code><br>or,&nbsp;type the following in the terminal window the build ran in:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">cd $OUT</code></p>
+                    <p>There you’ll find all the files that were created.(Rom file name is <code style="color: rgb(227,60,209);font-size: 16px;">&lt;Rom name&gt;-&lt;verison&gt;-&lt;YYYYDDMM&gt;-UNOFFICIAL-&lt;device code name&gt;.zip</code>&nbsp;<br>Example:&nbsp;<code style="font-size: 16px;color: rgb(227, 60, 209);">lineage-20.0-20240122-UNOFFICIAL-cheetah.zip</code></p>
                     <div class="col-xl-11 col-xxl-12" style="background: #ffffff;">
                         <footer class="text-center" style="background: #ffffff;">
-                            <div class="container text-muted py-4 py-lg-5" style="width: auto;">
+                            <div class="container text-muted py-4 py-lg-5">
                                 <ul class="list-inline">
                                     <li class="list-inline-item me-4"><a href="https://youtube.com"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-youtube" style="font-size: 28px;">
                                                 <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408z"></path>
@@ -110,7 +258,7 @@
                                 <p class="mb-0" style="font-family: SFMono;">Source&nbsp;<a href="https://source.android.com/">© Android Open source project</a>&nbsp;<a href="https://lineageos.org/">© 2016 - 2024 The LineageOS Project</a><br><a href="#">© 2014 to 2024 Team Win LLC.</a><br></p>
                             </div>
                         </footer>
-                    </div>
+                    </div><a class="cd-top js-cd-top cd-top--fade-out cd-top--show" href="#0" style="background: url(&quot;assets/img/arrow-up-circle-svgrepo-com.svg&quot;), rgba(183,183,183,0);border-radius: 19px;background-size: contain, auto;color: var(--bs-emphasis-color);border-color: var(--bs-secondary-color);">Top</a>
                 </div>
             </div>
         </div>
@@ -118,6 +266,7 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/bold-and-bright.js"></script>
+    <script src="assets/js/Bold-BS4-Animated-Back-To-Top-backtotop.js"></script>
 </body>
 
 </html>
