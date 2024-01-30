@@ -57,7 +57,6 @@
             <p style="font-size: 26px;margin: 3px;"><strong>Setup your environment</strong></p>
             <p style="margin: 0px;background: #f2f2f2;width: auto;border-top-left-radius: 5px;border-top-right-radius: 5px;font-size: 17px;font-family: 'BIZ UDPGothic', sans-serif;padding: 2px;"><strong>&nbsp;Table of content</strong></p>
             <ul style="background: #f2f2f2;width: auto;border-bottom-right-radius: 5px;border-bottom-left-radius: 5px;height: auto;">
-                <li><a href="#what-youll-need"><span style="color: rgb(0, 0, 0);">What you’ll need</span></a></li>
                 <li><a href="#Build-OS" style="color: var(--bs-emphasis-color);"><span style="color: rgb(0, 0, 0);">Build OS</span></a>
                     <ul>
                         <li><a href="#install-the-platform-tools" style="color: var(--bs-emphasis-color);">Install the platform-tools</a></li>
@@ -80,45 +79,15 @@
             </ul>
             <div class="col-sm-10" style="margin: 0;width: auto;height: auto;">
                 <div class="container">
-                    <h3 id="what-youll-need" style="margin: 20px 0px 10px;">What's you'll need</h3>
-                    <ul>
-                        <li>OEM unlocked device</li>
-                        <li>A relatively recent x86_64 computer:<br>
-                            <ul>
-                                <li>Linux, macOS, or Windows - these instructions are only tested using Ubuntu 20.04 LTS or later, so we recommend going with that.</li>
-                                <li>A reasonable amount of RAM (16 GB to build up to , 32 GB or more for and up). The less RAM you have, the longer the build will take.</li>
-                                <li>A reasonable amount of Storage (500 GB to build up to , 600 GB for and up). You might require more free space for enabling or building for multiple devices. Using SSDs results in considerably faster build times than traditional hard drives.</li>
-                            </ul>
-                        </li>
-                        <li>Some familiarity with basic Android operation and terminology. It may be useful to know some basic command line concepts such as , which stands for “change directory”, the concept of directory hierarchies, and that in Linux they are separated by , etc.&nbsp;<code style="color: var(--bs-success);">cd, vim, rm, git</code></li>
-                    </ul>
-                    <p>TIP: If you are not accustomed to using Linux, this is an excellent chance to learn. It’s free – just download and run a virtual machine (VM) such as VirtualBox, then install a Linux distribution such as Ubuntu (AOSP vets Ubuntu as well). Any recent 64-bit version should work great, but the latest Long Term Support (LTS) version is recommended. There are plenty of instructions on setting up Virtua</p>
-                    <div class="alert alert-success" role="alert"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-check" style="margin: 0px 0px 2px;">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M5 12l5 5l10 -10"></path>
-                        </svg><span><strong>TIP</strong>: If you are not accustomed to using Linux, this is an excellent chance to learn. It’s free – just download and run a virtual machine (VM) such as VirtualBox, then install a Linux distribution such as Ubuntu (AOSP vets Ubuntu as well). Any recent 64-bit version should work great, but the latest Long Term Support (LTS) version is recommended. There are plenty of instructions on setting up VirtualBox&nbsp;</span></div>
                     <h2 id="Build-OS" style="margin: 20px 0px 10px;">Build OS</h2>
-                    <div class="alert alert-success" role="alert" style="background: rgb(228,243,255);border-color: rgb(168,202,255);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="margin: 0px 0px 3px;">
-                            <path d="M11 10.9794C11 10.4271 11.4477 9.97937 12 9.97937C12.5523 9.97937 13 10.4271 13 10.9794V16.9794C13 17.5317 12.5523 17.9794 12 17.9794C11.4477 17.9794 11 17.5317 11 16.9794V10.9794Z" fill="currentColor"></path>
-                            <path d="M12 6.05115C11.4477 6.05115 11 6.49886 11 7.05115C11 7.60343 11.4477 8.05115 12 8.05115C12.5523 8.05115 13 7.60343 13 7.05115C13 6.49886 12.5523 6.05115 12 6.05115Z" fill="currentColor"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12Z" fill="currentColor"></path>
-                        </svg><span style="color: rgb(37,115,132);"><strong>NOTE</strong>: You only need to do these steps once. If you have already prepared your build environment and downloaded the source code, skip to Prepare the device-specific code</span></div>
                     <h4 id="install-the-platform-tools">Install the platform-tools</h4>
                     <p>If you haven’t previously installed&nbsp;<code style="font-size: 16px;color: var(--bs-success);">adb</code> and&nbsp;<code style="font-size: 16px;color: var(--bs-success);">fastboot</code>, you can&nbsp;<a href="#" style="color: rgba(0,56,255,0.87);" data-bs-target="https://dl.google.com/android/repository/platform-tools-latest-linux.zip">download them from google</a>. Extract it running:<br></p>
                     <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-body-color);">unzip platform-tools-latest-linux.zip -d ~</code></p>
-                    <div class="alert alert-success" role="alert"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-check">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M5 12l5 5l10 -10"></path>
-                        </svg><span><strong>TIP</strong>: The file may not be named identically to what stands in this command, so adjust accordingly.</span></div>
                     <p>Now you have to add&nbsp;<code style="font-size: 16px;color: var(--bs-success);">adb</code> and&nbsp;<code style="font-size: 16px;color: var(--bs-success);">fastboot</code> to your PATH. Open&nbsp;<code style="font-size: 16px;color: var(--bs-success);">~/.profile</code>&nbsp;and add the following:</p>
                     <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-body-color);"># add Android SDK platform tools to path<br>if [ -d "$HOME/platform-tools" ] ; then<br>&nbsp; PATH="$HOME/platform-tools:$PATH"<br>fi</code></p>
-                    <p>Then, run source&nbsp;<code style="font-size: 16px;color: var(--bs-success);">~/.profile</code> to update your environment.</p>
+                    <p>Then, run&nbsp;<code style="font-size: 16px;color: var(--bs-success);">source ~/.profile</code> to update your environment.</p>
                     <h3 id="install-the-build-packages" style="margin: 20px 0px 10px;">Install the build packages</h3>
                     <p>Several packages are needed to build LineageOS. You can install these using your distribution’s package manager.</p>
-                    <div class="alert alert-success" role="alert"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-check" style="margin: 0px 0px 2px;">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M5 12l5 5l10 -10"></path>
-                        </svg><span style="color: rgb(0, 73, 48);"><strong>TIP</strong>: A&nbsp;<a class="alert-link" href="https://en.wikipedia.org/wiki/Package_manager"><span style="font-weight: normal !important;">package manager</span></a> in Linux is a system used to install or remove software (usually originating from the Internet) on your computer. With Ubuntu, you can use the Ubuntu Software Center. Even better, you may also use the&nbsp;<code style="font-size: 16px;color: rgb(0,73,48);background: rgb(198,218,211);border-radius: 2px;">apt get install</code>&nbsp;command directly in the Terminal.</span></div>
                     <p>To build LineageOS and others, you’ll need:</p>
                     <ul>
                         <li><code style="font-size: 16px;color: var(--bs-success);">bc bison build-essential ccache curl flex g++-multilib gcc-multilib git git-lfs gnupg gperf imagemagick lib32readline-dev lib32z1-dev </code></li>
@@ -161,7 +130,6 @@
                         </li>
                         <li>Android4-6: OpenJDK 1.7 (install&nbsp;<code style="font-size: 16px;color: var(--bs-success);">openjdk-7-jdk</code>)*</li>
                     </ul>
-                    <p>* Ubuntu 16.04 and newer do not have OpenJDK 1.7 in the standard package repositories. See the Ask Ubuntu question <a href="https://askubuntu.com/questions/761127/how-do-i-install-openjdk-7-on-ubuntu-16-04-or-higher" style="color: rgba(0,56,255,0.87);">“How do I install openjdk 7 on Ubuntu 16.04 or higher?”</a>. Note that the suggestion to use PPA openjdk-r is outdated (the PPA has never updated their offering of openjdk-7-jdk, so it lacks security fixes); skip that answer even if it is the most upvoted.</p>
                     <h4 id="python" style="margin: 20px 0px 10px;">Python</h4>
                     <p>Different versions of LineageOS require different default Python versions.</p>
                     <ul>
@@ -169,8 +137,6 @@
                         <li>Android4-9: Python 2 (install <code style="font-size: 16px;color: var(--bs-success);">python-is-python2</code>)</li>
                     </ul>
                     <p>If your default is <code style="font-size: 16px;color: var(--bs-success);">python3</code>, but you’re building branch that requires <code style="font-size: 16px;color: var(--bs-success);">python2</code>, there are various methods to using it, e.g. <a href="https://stackoverflow.com/questions/61486624/python-is-python-2-package-something-new/66129356#66129356" style="color: rgba(0,56,255,0.87);">symlinking it manually</a>&nbsp;or creating a&nbsp;<a href="https://pypi.org/project/virtualenv/" style="color: rgba(0,56,255,0.87);">virtualenv</a>&nbsp;for it. We recommend the latter:</p>
-                    <p>Generate the virtualenv once using <code style="font-size: 16px;color: var(--bs-success);">virtualenv --python=python2 ~/.lineage_venv</code>. Afterwards, activate it in each terminal where you need <code style="font-size: 16px;color: var(--bs-success);">python2</code>&nbsp;as default by running <code style="font-size: 16px;color: var(--bs-success);">~/.lineage_venv/bin/activate</code>~/.lineage_venv/bin/activate.</p>
-                    <p>The path <code style="font-size: 16px;color: var(--bs-success);">~/.lineage_venv</code>&nbsp;can be chosen freely, this is just an example!</p>
                     <h3 id="create-the-directories" style="margin: 20px 0px 10px;">Create the directories</h3>
                     <p style="background: #f2f2f2;border-radius: 5px;line-height: 60px;"></p>
                     <p>You’ll need to set up some directories in your build environment.</p>
@@ -194,11 +160,6 @@
                     <h3 id="initialize-the-os-source-repository" style="margin: 20px 0px 10px;">Initialize the OS source repository</h3>
                     <p>Enter the following to initialize the repository:</p>
                     <p style="background: #f2f2f2;border-radius: 5px;line-height: 60px;"></p>
-                    <div class="alert alert-success" role="alert" style="background: rgb(228,243,255);border-color: rgb(168,202,255);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="margin: 0px 0px 3px;">
-                            <path d="M11 10.9794C11 10.4271 11.4477 9.97937 12 9.97937C12.5523 9.97937 13 10.4271 13 10.9794V16.9794C13 17.5317 12.5523 17.9794 12 17.9794C11.4477 17.9794 11 17.5317 11 16.9794V10.9794Z" fill="currentColor"></path>
-                            <path d="M12 6.05115C11.4477 6.05115 11 6.49886 11 7.05115C11 7.60343 11.4477 8.05115 12 8.05115C12.5523 8.05115 13 7.60343 13 7.05115C13 6.49886 12.5523 6.05115 12 6.05115Z" fill="currentColor"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12Z" fill="currentColor"></path>
-                        </svg><span style="color: rgb(37,115,132);"><strong>NOTE</strong>: Make sure the branch you enter here is the one you wish to build!</span></div>
                     <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">cd ~/android/workspace</code></p>
                     <p>LineageOS:</p>
                     <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">repo init -u https://github.com/LineageOS/android.git -b &lt;branch&gt; --git-lfs</code></p>
