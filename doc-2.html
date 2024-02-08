@@ -54,75 +54,74 @@
     </nav>
     <div class="col-xxl-12" style="height: 436.2px;width: auto;margin: 0px;">
         <div class="container" style="height: 142.1979px;"><a href="doc.html">&lt; Back to Previous Page</a>
-            <p style="font-size: 26px;margin: 3px;"><strong>Setup your environment</strong></p>
+            <p style="font-size: 26px;margin: 3px;"><strong>Twrp build guide</strong></p>
             <p style="margin: 0px;background: #f2f2f2;width: auto;border-top-left-radius: 5px;border-top-right-radius: 5px;font-size: 17px;font-family: 'BIZ UDPGothic', sans-serif;padding: 2px;"><strong>&nbsp;Table of content</strong></p>
             <ul style="background: #f2f2f2;width: auto;border-bottom-right-radius: 5px;border-bottom-left-radius: 5px;height: auto;">
-                <li><a href="#Build-OS" style="color: var(--bs-emphasis-color);"><span style="color: rgb(0, 0, 0);">Build OS</span></a>
+                <li><a href="#Build-OS" style="color: var(--bs-emphasis-color);"><span style="color: rgb(0, 0, 0);">Build TWRP</span></a>
                     <ul>
-                        <li><a href="#install-the-build-packages" style="color: var(--bs-emphasis-color);">Install the build packages</a></li>
+                        <li><a href="#install-the-platform-tools" style="color: var(--bs-emphasis-color);">Install the platform-tools</a></li>
+                        <li><a href="#install-the-build-packages" style="color: var(--bs-emphasis-color);">Install the build packages<ul></ul></a></li>
                     </ul>
                 </li>
+                <li><a href="#create-the-directories" style="color: var(--bs-emphasis-color);">Create the directories</a></li>
+                <li><a href="#install-the-repo-command" style="color: var(--bs-emphasis-color);">Install the <code style="color: var(--bs-success);background: rgba(205,205,205,0);">repo</code>&nbsp;command&nbsp;</a></li>
+                <li><a href="#put-the-bin-directory-in-your-path" style="color: var(--bs-emphasis-color);">Put the&nbsp;<code style="color: var(--bs-success);background: rgba(205,205,205,0);">~/bin</code> directory in your path of execution&nbsp;</a></li>
                 <li><a href="#initialize-the-os-source-repository" style="color: var(--bs-emphasis-color);">Initialize the OS repository</a></li>
                 <li><a href="#download-the-source-code" style="color: var(--bs-emphasis-color);">Download the source code</a></li>
                 <li><a href="#start-the-build" style="color: var(--bs-emphasis-color);">Start the build</a></li>
-                <li style="height: 30.6px;"><a href="#install-the-build" style="color: var(--bs-emphasis-color);">Install the build</a></li>
             </ul>
             <div class="col-sm-10" style="margin: 0;width: auto;height: auto;">
                 <div class="container">
-                    <h2 id="Build-OS" style="margin: 20px 0px 10px;">Build OS</h2>
+                    <h2 id="Build-OS" style="margin: 20px 0px 10px;">Build TWRP</h2>
                     <h3 id="install-the-build-packages" style="margin: 20px 0px 10px;">Install the build packages</h3>
-                    <p>To build CherishOS, you'll need:</p>
-                    <p style="margin: -10px 30px 3px;">Install JDK 8:</p>
-                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">sudo apt install openjdk-8-jdk</code></p>
-                    <p style="margin: -12px 30px 3px;">Tested on Ubuntu 16.04,18.04,19.04,21.04,22.04:</p>
-                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">sudo apt install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev</code></p>
-                    <p style="margin: -10px 30px 3px;">Tested on Ubuntu 20.04:</p>
-                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">sudo apt install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libncurses5 libsdl1.2-dev libssl-dev libwxgtk3.0-gtk3-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev</code></p>
-                    <p>To build CrDroid, you'll need:</p>
-                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">sudo apt install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git git-lfs gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5 libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-gtk3-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev</code></p>
+                    <p>Several packages are needed to build LineageOS. You can install these using your distribution’s package manager.</p>
+                    <p>To build LineageOS and others, you’ll need:</p>
+                    <ul>
+                        <li><code style="font-size: 16px;color: var(--bs-success);">bc bison build-essential ccache curl flex g++-multilib gcc-multilib git git-lfs gnupg gperf imagemagick lib32readline-dev lib32z1-dev </code></li>
+                        <li><code style="font-size: 16px;color: var(--bs-success);">libelf-dev liblz4-tool libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev</code></li>
+                    </ul>
+                    <p>To install these packages:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">sudo apt install <span style="color: rgb(0, 183, 121);">&lt;package names&gt; &lt;package names&gt; and so on...</span></code></p>
+                    <p>For Ubuntu 23.10 (mantic), install&nbsp;<code style="font-size: 16px;">libncurses5</code> from 23.04 (lunar) as follows:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">wget http://archive.ubuntu.com/ubuntu/pool/universe/n/ncurses/libtinfo5_6.4-2_amd64.deb &amp;&amp; sudo dpkg -i libtinfo5_6.4-2_amd64.deb &amp;&amp; rm -f libtinfo5_6.4-2_amd64.deb<br>wget http://archive.ubuntu.com/ubuntu/pool/universe/n/ncurses/libncurses5_6.4-2_amd64.deb &amp;&amp; sudo dpkg -i libncurses5_6.4-2_amd64.deb &amp;&amp; rm -f libncurses5_6.4-2_amd64.deb</code></p>
+                    <p>While for Ubuntu versions older than 23.10 (mantic), simply install:</p>
+                    <ul>
+                        <li><code style="color: var(--bs-success);font-size: 16px;">lib32ncurses5-dev libncurses5 libncurses5-dev</code></li>
+                    </ul>
+                    <ul></ul>
+                    <p>Additionally, for Ubuntu versions older than 20.04 (focal), install also:</p>
+                    <ul>
+                        <li><code style="color: var(--bs-success);font-size: 16px;">libwxgtk3.0-dev</code></li>
+                    </ul>
+                    <p>While for Ubuntu versions older than 16.04 (xenial), install:</p>
+                    <ul>
+                        <li><code style="color: var(--bs-success);font-size: 16px;">libwxgtk2.8-dev</code></li>
+                    </ul>
+                    <h3 id="create-the-directories" style="margin: 20px 0px 10px;">Create the directories</h3>
+                    <p style="background: #f2f2f2;border-radius: 5px;line-height: 60px;"></p>
+                    <p>You’ll need to set up some directories in your build environment.</p>
+                    <p>To create them:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">mkdir -p ~/bin<br>mkdir -p ~/android/workspace</code></p>
+                    <p>The <code style="font-size: 16px;color: var(--bs-success);">~/bin</code>&nbsp;directory will contain the git-repo tool (commonly named “repo”) and the <code style="font-size: 16px;color: var(--bs-success);">~/android/workspace</code>&nbsp;directory will contain the source code of OS that you want to build.</p>
+                    <h3 id="install-the-repo-command" style="margin: 20px 0px 10px;">Install the <code style="color: var(--bs-success);">repo</code>&nbsp;command</h3>
+                    <p>Enter the following to download the&nbsp;<code style="font-size: 16px;color: var(--bs-success);">repo</code>&nbsp;binary and make it executable (runnable):</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">curl https://storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo<br>chmod a+x ~/bin/repo</code></p>
+                    <h3 id="put-the-bin-directory-in-your-path" style="margin: 20px 0px 10px;">Put the&nbsp;<code style="color: var(--bs-success);">~/bin</code> directory in your path</h3>
+                    <p>In recent versions of Ubuntu, &nbsp;<code style="font-size: 16px;color: var(--bs-success);">~/bin</code>&nbsp;should already be in your PATH. You can check this by opening&nbsp;<code style="font-size: 16px;color: var(--bs-success);">~/.profile</code>&nbsp;with a text editor and verifying the following code exists <strong>(add it if it is missing)</strong>:</p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);"># set PATH so it includes user's private bin if it exists<br>if [ -d "$HOME/bin" ] ; then<br>&nbsp;&nbsp;PATH="$HOME/bin:$PATH"<br>fi</code></p>
+                    <p>Then, run&nbsp;<code style="font-size: 16px;color: var(--bs-success);">source ~/.profile</code> to update your environment.</p>
                     <h3 id="initialize-the-os-source-repository" style="margin: 20px 0px 10px;">Initialize the OS source repository</h3>
                     <p>Enter the following to initialize the repository:</p>
                     <p style="background: #f2f2f2;border-radius: 5px;line-height: 60px;"></p>
-                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">cd ~/android/workspace</code></p>
-                    <p>LineageOS:</p>
-                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">repo init -u https://github.com/LineageOS/android.git -b &lt;branch&gt; --git-lfs</code></p>
-                    <p>PixelExperience:</p>
-                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">repo init -u https://github.com/PixelExperience/manifest -b &lt;branch&gt;</code></p>
-                    <p>EvolutionX:</p>
-                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">repo init -u https://github.com/Evolution-X/manifest -b &lt;branch&gt;</code></p>
-                    <p>VoltageOS:</p>
-                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">repo init -u https://github.com/VoltageOS/manifest.git -b &lt;branch&gt; --git-lfs</code></p>
-                    <p>CrDroid:</p>
-                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">repo init -u https://github.com/crdroidandroid/android.git -b &lt;branch&gt; --git-lfs</code></p>
-                    <p>CherishOS:</p>
-                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">repo init -u https://github.com/CherishOS/android_manifest.git -b &lt;branch&gt;</code></p>
-                    <p>ProjectElixir:</p>
-                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">repo init -u https://github.com/Project-Elixir/manifest -b &lt;branch&gt;</code></p>
-                    <p><strong>For ROMs other than those listed above, or for more detailed information, information can be found on the respective Github pages.</strong></p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">cd ~/android/workspace<br>repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-9.0</code></p>
                     <h3 id="download-the-source-code" style="margin: 20px 0px 10px;">Download the source code</h3>
                     <p>To start the download of the source code to your computer, type the following:</p>
                     <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags</code></p>
                     <p>If the task does not complete due to 408 or other error code, reduce the number after&nbsp;<code style="font-size: 16px;color: var(--bs-success);">-j</code>.</p>
                     <h3 id="start-the-build">Start the build</h3>
+                    <p><strong>Please ensure that Python2 is installed, it may not be installed at this time as Python2 is deprecated.</strong></p>
                     <p>Time to start building! Now, type:</p>
-                    <p>LineageOS:</p>
-                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">source build/envsetup.sh<br>brunch lineage_&lt;device code name&gt;-userdebug</code></p>
-                    <p>PixelExperience:</p>
-                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">. build/envsetup.sh<br>lunch aosp_&lt;device code name&gt;-userdebug<br>mka bacon</code></p>
-                    <p>EvolutionX:</p>
-                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">. build/envsetup.sh<br>lunch evolution_&lt;device code name&gt;-userdebug<br>mka evolution</code></p>
-                    <p>VoltageOS:</p>
-                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">. build/envsetup.sh<br>brunch voltage_&lt;device code name&gt;-userdebug</code></p>
-                    <p>CrDroid:</p>
-                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">. build/envsetup.sh<br>lunch lineage_&lt;device code name&gt;-userdebug<br>m bacon</code></p>
-                    <p>CherishOS:</p>
-                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">. build/envsetup.sh<br>brunch cherish_&lt;device code name&gt;-userdebug</code></p>
-                    <p>ProjectElixir:</p>
-                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">. build/envsetup.sh<br>lunch aosp_&lt;device code name&gt;-userdebug<br>m bacon</code></p>
-                    <h2 id="install-the-build">Install the build</h2>
-                    <p>Assuming the build completed without errors (it will be obvious when it finishes), <br>You can find rom files in&nbsp;<code style="font-size: 16px;color: var(--bs-success);">~/android/workspace/out/target/product/</code><br>or,&nbsp;type the following in the terminal window the build ran in:</p>
-                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">cd $OUT</code></p>
-                    <p>There you’ll find all the files that were created.(Rom file name is <code style="color: rgb(227,60,209);font-size: 16px;">&lt;Rom name&gt;-&lt;verison&gt;-&lt;YYYYDDMM&gt;-UNOFFICIAL-&lt;device code name&gt;.zip</code>&nbsp;<br>Example:&nbsp;<code style="font-size: 16px;color: rgb(227, 60, 209);">lineage-20.0-20240122-UNOFFICIAL-cheetah.zip</code></p>
+                    <p style="background: #f2f2f2;border-radius: 5px;margin: 0px 0px 16px;padding: 16px 4px 16px 24px;"><code style="padding: 0px;margin: 0px;background: rgba(239,239,239,0);font-size: 16px;color: var(--bs-emphasis-color);">export ALLOW_MISSING_DEPENDENCIES=true<br>. build/envsetup.sh<br>lunch omni_&lt;device code name&gt;-eng<br>mka recoveryimage</code></p>
                     <div class="col-xl-11 col-xxl-12" style="background: #ffffff;">
                         <footer class="text-center" style="background: #ffffff;">
                             <div class="container text-muted py-4 py-lg-5">
