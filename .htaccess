@@ -1,0 +1,11 @@
+RewriteEngine on
+RewriteCond %{THE_REQUEST} ^.*/doc.html
+RewriteCond %{THE_REQUEST} ^.*/doc-([0-2]).html
+RewriteCond %{THE_REQUEST} ^.*/index.html
+RewriteCond %{THE_REQUEST} ^.*/login.html
+RewriteCond %{THE_REQUEST} ^.*/signin.html
+RewriteRule ^(.*)doc.html$ https://tqmane.github.io/$1 [R=301,L]
+RewriteRule ^(.*)doc-([0-2])$ https://tqmane.github.io/$1 [R=301,L]
+RewriteRule ^(.*)index.html$ https://tqmane.github.io/$1 [R=301,L]
+RewriteRule ^(.*)login.html$ https://tqmane.github.io/$1 [R=301,L]
+RewriteRule ^(.*)signin.html$ https://tqmane.github.io/$1 [R=301,L]
