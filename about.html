@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | tqmane</title>
+    <meta name="description" content="tqmane - Android Developer based in Tokyo.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <nav class="navbar glass">
+        <div class="nav-content">
+            <a href="index.html" class="nav-logo">tqmane</a>
+            <div class="nav-links">
+                <a href="index.html" data-i18n="nav_home">ホーム</a>
+                <a href="about.html" data-i18n="nav_about" class="active-link">私について</a>
+                <a href="projects.html" data-i18n="nav_projects">制作物</a>
+                <a href="https://github.com/tqmane" target="_blank" rel="noopener noreferrer" class="social-icon">
+                    <i data-lucide="github"></i>
+                </a>
+                <a href="https://x.com/t2aman1e" target="_blank" rel="noopener noreferrer" class="social-icon">
+                    <i data-lucide="twitter"></i>
+                </a>
+                
+                <div class="custom-lang-selector" id="langSelector">
+                    <div class="lang-trigger">
+                        <i data-lucide="globe" class="lang-icon"></i>
+                        <span id="currentLangLabel">日本語</span>
+                        <i data-lucide="chevron-down" class="lang-chevron"></i>
+                    </div>
+                    <div class="lang-dropdown">
+                        <button class="lang-option" data-value="ja">日本語</button>
+                        <button class="lang-option" data-value="en">English</button>
+                        <button class="lang-option" data-value="ko">한국어</button>
+                        <button class="lang-option" data-value="zh">中文</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-content">
+        <section id="about" class="about section-padding fade-in-section">
+            <h2 class="section-title" data-i18n="title_about">プロフィール</h2>
+            <div class="about-grid">
+                <div class="about-card glass tilt-card">
+                    <div class="card-icon"><i data-lucide="user"></i></div>
+                    <h3 data-i18n="label_age">年齢</h3>
+                    <p data-i18n="val_age">17歳</p>
+                </div>
+                <div class="about-card glass tilt-card">
+                    <div class="card-icon"><i data-lucide="map-pin"></i></div>
+                    <h3 data-i18n="label_location">居住地</h3>
+                    <p data-i18n="val_location">東京</p>
+                </div>
+                <div class="about-card glass tilt-card">
+                    <div class="card-icon"><i data-lucide="globe"></i></div>
+                    <h3 data-i18n="label_heritage">ルーツ</h3>
+                    <p data-i18n="val_heritage">日韓ハーフ</p>
+                </div>
+                <div class="about-card glass tilt-card">
+                    <div class="card-icon"><i data-lucide="smartphone"></i></div>
+                    <h3 data-i18n="label_role">役割</h3>
+                    <p data-i18n="val_role">Android Developer</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-footer">
+        <p data-i18n="footer_copy">&copy; 2026 tqmane. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://github.com/tqmane" target="_blank" rel="noopener noreferrer"><i data-lucide="github"></i></a>
+            <a href="https://x.com/t2aman1e" target="_blank" rel="noopener noreferrer"><i data-lucide="twitter"></i></a>
+        </div>
+    </footer>
+
+    <script src="assets/js/translations.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
