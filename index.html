@@ -3,137 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tqmane | Portfolio</title>
-    <meta name="description" content="tqmane - Android Developer based in Tokyo.">
+    <title>tqmane | Developer Portfolio</title>
+    <meta name="description" content="tqmane - iOS / Android Developer based in Tokyo.">
+    <meta name="theme-color" content="#0a0a0a">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-    <div class="cursor-glow" id="cursorGlow"></div>
 
-    <!-- Navbar -->
-    <nav class="navbar glass">
-        <div class="nav-content">
-            <a href="#hero" class="nav-logo">tqmane</a>
-            <div class="nav-links">
-                <a href="#about" data-i18n="nav_about">私について</a>
-                <a href="#projects" data-i18n="nav_projects">制作物</a>
-                <a href="https://github.com/tqmane" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub">
-                    <i data-lucide="github"></i>
-                </a>
-                <a href="https://x.com/t2aman1e" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="X(Twitter)">
-                    <i data-lucide="twitter"></i>
-                </a>
+    <!-- Noise overlay -->
+    <div class="noise"></div>
 
-                <!-- Custom Language Selector -->
-                <div class="custom-lang-selector" id="langSelector">
-                    <div class="lang-trigger" id="langTriggerBtn">
-                        <i data-lucide="globe" class="lang-icon"></i>
-                        <span id="currentLangLabel">日本語</span>
-                        <i data-lucide="chevron-down" class="lang-chevron"></i>
-                    </div>
-                    <div class="lang-dropdown">
-                        <button class="lang-option active" data-value="ja">日本語</button>
-                        <button class="lang-option" data-value="en">English</button>
-                        <button class="lang-option" data-value="ko">한국어</button>
-                        <button class="lang-option" data-value="zh">中文</button>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">tqmane</a>
+            <div class="nav-right">
+                <a href="#about" class="nav-link" data-i18n="nav_about">About</a>
+                <a href="#works" class="nav-link" data-i18n="nav_works">Works</a>
+                <div class="nav-socials">
+                    <a href="https://github.com/tqmane" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i data-lucide="github"></i></a>
+                    <a href="https://x.com/t2aman1e" target="_blank" rel="noopener noreferrer" aria-label="X"><i data-lucide="twitter"></i></a>
+                </div>
+                <div class="lang-select" id="langSelect">
+                    <button class="lang-btn" id="langBtn">
+                        <i data-lucide="globe"></i>
+                        <span id="langLabel">JA</span>
+                    </button>
+                    <div class="lang-menu" id="langMenu">
+                        <button class="lang-item active" data-lang="ja">日本語</button>
+                        <button class="lang-item" data-lang="en">English</button>
+                        <button class="lang-item" data-lang="ko">한국어</button>
+                        <button class="lang-item" data-lang="zh">中文</button>
                     </div>
                 </div>
             </div>
+            <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about" class="mobile-link" data-i18n="nav_about">About</a>
+        <a href="#works" class="mobile-link" data-i18n="nav_works">Works</a>
+        <div class="mobile-socials">
+            <a href="https://github.com/tqmane" target="_blank" rel="noopener noreferrer"><i data-lucide="github"></i></a>
+            <a href="https://x.com/t2aman1e" target="_blank" rel="noopener noreferrer"><i data-lucide="twitter"></i></a>
+        </div>
+        <div class="mobile-lang">
+            <button class="lang-item" data-lang="ja">JA</button>
+            <button class="lang-item" data-lang="en">EN</button>
+            <button class="lang-item" data-lang="ko">KO</button>
+            <button class="lang-item" data-lang="zh">ZH</button>
+        </div>
+    </div>
 
     <main>
 
         <!-- Hero -->
-        <section id="hero" class="hero fade-in-section">
-            <div class="hero-content">
-                <div class="profile-img-container">
-                    <img src="assets/images/icon.jpg" alt="tqmane profile" class="profile-img">
-                    <div class="glow-ring"></div>
+        <section class="hero" id="hero">
+            <div class="hero-inner">
+                <div class="hero-badge anim-up" data-i18n="hero_badge">Developer / Tokyo</div>
+                <div class="hero-title-row anim-up delay-1">
+                    <h1 class="hero-title">
+                        <span data-i18n="hero_hi">Hi, I'm</span>
+                        <span class="hero-name">tqmane<span class="hero-dot">.</span></span>
+                    </h1>
+                    <img src="assets/images/icon.jpg" alt="tqmane" class="hero-avatar">
                 </div>
-                <h1 class="hero-title">
-                    <span data-i18n="hero_greeting">Hi, I'm</span> <span class="gradient-text">tqmane</span>
-                </h1>
-                <p class="hero-subtitle" data-i18n="hero_subtitle">次世代のAndroid体験を創り出すDeveloperです。</p>
-                <div class="hero-actions">
-                    <a href="#projects" class="btn btn-primary" data-i18n="btn_work">制作物を見る</a>
-                    <a href="#about" class="btn btn-secondary" data-i18n="btn_about">プロフィール</a>
+                <p class="hero-desc anim-up delay-2" data-i18n="hero_desc">iOS / Android アプリ開発をメインに活動している、東京在住の17歳です。</p>
+                <div class="hero-cta anim-up delay-3">
+                    <a href="#works" class="btn-primary" data-i18n="hero_btn_works">Works</a>
+                    <a href="#about" class="btn-ghost" data-i18n="hero_btn_about">About me</a>
                 </div>
             </div>
-            <div class="scroll-hint">
-                <div class="scroll-dot"></div>
+            <div class="hero-scroll">
+                <div class="hero-scroll-line"></div>
             </div>
         </section>
 
         <!-- About -->
-        <section id="about" class="about section-padding fade-in-section">
-            <h2 class="section-title" data-i18n="nav_about">私について</h2>
-            <div class="about-grid">
-                <div class="about-card glass">
-                    <div class="card-icon"><i data-lucide="user"></i></div>
-                    <h3 data-i18n="label_age">年齢</h3>
-                    <p data-i18n="val_age">17歳</p>
-                </div>
-                <div class="about-card glass">
-                    <div class="card-icon"><i data-lucide="map-pin"></i></div>
-                    <h3 data-i18n="label_location">住んでるところ</h3>
-                    <p data-i18n="val_location">日本・東京</p>
-                </div>
-                <div class="about-card glass">
-                    <div class="card-icon"><i data-lucide="globe"></i></div>
-                    <h3 data-i18n="label_heritage">ルーツ</h3>
-                    <p data-i18n="val_heritage">日韓ハーフ</p>
-                </div>
-                <div class="about-card glass">
-                    <div class="card-icon"><i data-lucide="smartphone"></i></div>
-                    <h3 data-i18n="label_role">やってること</h3>
-                    <p data-i18n="val_role">Android Developer</p>
+        <section class="about" id="about">
+            <div class="section-inner">
+                <div class="section-label anim-up" data-i18n="nav_about">About</div>
+                <h2 class="section-heading anim-up" data-i18n="about_heading">Profile</h2>
+                <div class="about-grid">
+                    <div class="about-item anim-up">
+                        <span class="about-label" data-i18n="label_age">Age</span>
+                        <span class="about-value" data-i18n="val_age">17</span>
+                    </div>
+                    <div class="about-item anim-up">
+                        <span class="about-label" data-i18n="label_location">Location</span>
+                        <span class="about-value" data-i18n="val_location">Tokyo, Japan</span>
+                    </div>
+                    <div class="about-item anim-up">
+                        <span class="about-label" data-i18n="label_heritage">Heritage</span>
+                        <span class="about-value" data-i18n="val_heritage">Japanese & Korean</span>
+                    </div>
+                    <div class="about-item anim-up">
+                        <span class="about-label" data-i18n="label_role">Focus</span>
+                        <span class="about-value" data-i18n="val_role">iOS / Android Developer</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects -->
-        <section id="projects" class="projects section-padding fade-in-section">
-            <h2 class="section-title" data-i18n="nav_projects">制作物</h2>
-            <div class="project-grid">
+        <!-- Works -->
+        <section class="works" id="works">
+            <div class="section-inner">
+                <div class="section-label anim-up" data-i18n="nav_works">Works</div>
+                <h2 class="section-heading anim-up" data-i18n="works_heading">Projects</h2>
+                <div class="works-grid">
 
-                <a href="https://tqmane.github.io/film_sims_web/" target="_blank" rel="noopener noreferrer" class="project-card glass">
-                    <div class="project-card-content">
-                        <div class="project-icon-wrapper">
-                            <i data-lucide="camera" class="project-icon"></i>
+                    <!-- FilmSims -->
+                    <a href="https://tqmane.github.io/film_sims_web/" target="_blank" rel="noopener noreferrer" class="work-card anim-up">
+                        <div class="work-thumb">
+                            <img src="pictures/Filmsims.png" alt="FilmSims" loading="lazy">
                         </div>
-                        <h3 class="project-title" data-i18n="proj1_title">Film Sims Web</h3>
-                        <p class="project-desc" data-i18n="proj1_desc">フィルムカメラのシミュレーション、Web版。アナログな感じをブラウザで手軽に楽しめます。</p>
-                        <div class="project-link-text"><span data-i18n="proj1_link">Webアプリを開く</span> <i data-lucide="arrow-right"></i></div>
-                    </div>
-                </a>
-
-                <a href="https://www.opendesktop.org/p/2350582/" target="_blank" rel="noopener noreferrer" class="project-card glass">
-                    <div class="project-card-content">
-                        <div class="project-icon-wrapper">
-                            <i data-lucide="layers" class="project-icon"></i>
+                        <div class="work-body">
+                            <div class="work-tags">
+                                <span class="tag tag-ios">iOS</span>
+                                <span class="tag tag-android">Android</span>
+                            </div>
+                            <h3 class="work-title">FilmSims</h3>
+                            <p class="work-desc" data-i18n="proj_filmsims_desc">本格的なフィルムシミュレーションアプリ。多彩なプリセットとGPU処理で、スマホ写真にアナログの質感を。</p>
+                            <div class="work-arrow"><i data-lucide="arrow-up-right"></i></div>
                         </div>
-                        <h3 class="project-title" data-i18n="proj2_title">HyperOS 3 App Port</h3>
-                        <p class="project-desc" data-i18n="proj2_desc">HyperOS 3のアプリを他のデバイスにポートしてます。できるだけ動作を維持しながらの移植を心がけています。</p>
-                        <div class="project-link-text"><span data-i18n="proj2_link">詳しく見る</span> <i data-lucide="arrow-right"></i></div>
-                    </div>
-                </a>
+                    </a>
 
+                    <!-- iMons -->
+                    <a href="https://tqmane.github.io/iMons_web/" target="_blank" rel="noopener noreferrer" class="work-card anim-up">
+                        <div class="work-thumb">
+                            <img src="pictures/iMons.png" alt="iMons" loading="lazy">
+                        </div>
+                        <div class="work-body">
+                            <div class="work-tags">
+                                <span class="tag tag-android">Android</span>
+                            </div>
+                            <h3 class="work-title">iMons</h3>
+                            <p class="work-desc" data-i18n="proj_imons_desc">6つのTwitter動画保存サイトを統合したAndroidアプリ。検索・ランキング・DL・お気に入り管理まで。</p>
+                            <div class="work-arrow"><i data-lucide="arrow-up-right"></i></div>
+                        </div>
+                    </a>
+
+                    <!-- HyperOS Apps Port -->
+                    <a href="https://www.opendesktop.org/p/2350582/" target="_blank" rel="noopener noreferrer" class="work-card anim-up">
+                        <div class="work-thumb">
+                            <img src="pictures/HyperOS.png" alt="HyperOS Apps Port" loading="lazy">
+                        </div>
+                        <div class="work-body">
+                            <div class="work-tags">
+                                <span class="tag tag-android">Android</span>
+                            </div>
+                            <h3 class="work-title">HyperOS Apps Port</h3>
+                            <p class="work-desc" data-i18n="proj_hyperos_desc">Xiaomi HyperOS 3のシステムアプリを他デバイス向けに移植。動作を維持しながらの最適化。</p>
+                            <div class="work-arrow"><i data-lucide="arrow-up-right"></i></div>
+                        </div>
+                    </a>
+
+                    <!-- BeastLocator -->
+                    <a href="https://github.com/tqmane/BeastLocator_ios" target="_blank" rel="noopener noreferrer" class="work-card anim-up">
+                        <div class="work-thumb">
+                            <img src="pictures/BeastLocator.png" alt="BeastLocator" loading="lazy">
+                        </div>
+                        <div class="work-body">
+                            <div class="work-tags">
+                                <span class="tag tag-ios">iOS</span>
+                            </div>
+                            <h3 class="work-title">BeastLocator</h3>
+                            <p class="work-desc" data-i18n="proj_beast_desc">野獣邸への方角と距離をリアルタイム表示するiOSアプリ。ウィジェット・Live Activity対応。</p>
+                            <div class="work-arrow"><i data-lucide="arrow-up-right"></i></div>
+                        </div>
+                    </a>
+
+                </div>
             </div>
         </section>
 
     </main>
 
     <!-- Footer -->
-    <footer class="glass-footer">
-        <p data-i18n="footer_copy">&copy; 2026 tqmane. All rights reserved.</p>
-        <div class="footer-links">
-            <a href="https://github.com/tqmane" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i data-lucide="github"></i></a>
-            <a href="https://x.com/t2aman1e" target="_blank" rel="noopener noreferrer" aria-label="X"><i data-lucide="twitter"></i></a>
+    <footer class="footer">
+        <div class="footer-inner">
+            <p class="footer-copy" data-i18n="footer_copy">&copy; 2026 tqmane</p>
+            <div class="footer-links">
+                <a href="https://github.com/tqmane" target="_blank" rel="noopener noreferrer"><i data-lucide="github"></i></a>
+                <a href="https://x.com/t2aman1e" target="_blank" rel="noopener noreferrer"><i data-lucide="twitter"></i></a>
+            </div>
         </div>
     </footer>
 

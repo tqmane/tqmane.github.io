@@ -1,109 +1,90 @@
 // Initialize Lucide Icons
 lucide.createIcons();
 
-// ─── Mouse Follow Glow ───────────────────────────────────────────────────────
-const cursorGlow = document.getElementById('cursorGlow');
-let mouseX = 0, mouseY = 0, glowX = 0, glowY = 0;
-
-document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-});
-
-function animateGlow() {
-    glowX += (mouseX - glowX) * 0.1;
-    glowY += (mouseY - glowY) * 0.1;
-    if (cursorGlow) {
-        cursorGlow.style.left = `${glowX}px`;
-        cursorGlow.style.top  = `${glowY}px`;
-    }
-    requestAnimationFrame(animateGlow);
-}
-animateGlow();
-
-// Glow size on interactive elements
-const interactiveElements = document.querySelectorAll('a, button, .about-card, .project-card');
-interactiveElements.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-        if (!cursorGlow) return;
-        cursorGlow.style.width  = '80px';
-        cursorGlow.style.height = '80px';
-        cursorGlow.style.background = 'radial-gradient(circle, rgba(249,115,22,0.4), transparent 70%)';
-    });
-    el.addEventListener('mouseleave', () => {
-        if (!cursorGlow) return;
-        cursorGlow.style.width  = '300px';
-        cursorGlow.style.height = '300px';
-        cursorGlow.style.background = 'radial-gradient(circle, rgba(249,115,22,0.15), transparent 70%)';
-    });
-});
-
-// ─── Project Card Glow on Mouse Move ─────────────────────────────────────────
-document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mousemove', e => {
-        const r = card.getBoundingClientRect();
-        card.style.setProperty('--mouse-x', `${e.clientX - r.left}px`);
-        card.style.setProperty('--mouse-y', `${e.clientY - r.top}px`);
-    });
-});
-
-// ─── Scroll Animations ────────────────────────────────────────────────────────
+// ─── Scroll Animations ───────────────────────────────────────────────────────
+const animEls = document.querySelectorAll('.anim-up');
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
+            entry.target.classList.add('visible');
             observer.unobserve(entry.target);
         }
     });
-}, { threshold: 0.1 });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+animEls.forEach(el => observer.observe(el));
 
-document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
-
-// Trigger hero on load
+// Trigger hero animations on load
 window.addEventListener('load', () => {
-    const hero = document.getElementById('hero');
-    if (hero) setTimeout(() => hero.classList.add('is-visible'), 80);
+    document.querySelectorAll('.hero .anim-up').forEach(el => {
+        setTimeout(() => el.classList.add('visible'), 80);
+    });
 });
 
 // ─── Active Nav Link on Scroll ───────────────────────────────────────────────
 const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+const navLinks = document.querySelectorAll('.nav-link');
 
 function updateActiveNav() {
     let current = '';
     sections.forEach(s => {
-        if (window.scrollY >= s.offsetTop - 120) current = s.id;
+        if (window.scrollY >= s.offsetTop - 200) current = s.id;
     });
     navLinks.forEach(link => {
-        link.classList.toggle('active-link', link.getAttribute('href') === `#${current}`);
+        const href = link.getAttribute('href');
+        link.classList.toggle('active', href === `#${current}`);
     });
 }
 window.addEventListener('scroll', updateActiveNav, { passive: true });
-updateActiveNav();
 
-// ─── Language Selector ───────────────────────────────────────────────────────
-const langSelector   = document.getElementById('langSelector');
-const currentLabel   = document.getElementById('currentLangLabel');
-const langOptions    = document.querySelectorAll('.lang-option');
-const langTriggerBtn = document.getElementById('langTriggerBtn');
+// ─── Hamburger / Mobile Menu ─────────────────────────────────────────────────
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
 
-if (langTriggerBtn) {
-    langTriggerBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        langSelector.classList.toggle('open');
+if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+        document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    mobileMenu.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        });
     });
 }
 
-document.addEventListener('click', () => {
-    langSelector?.classList.remove('open');
-});
+// ─── Language Selector (Desktop) ─────────────────────────────────────────────
+const langSelect = document.getElementById('langSelect');
+const langBtn = document.getElementById('langBtn');
 
-langOptions.forEach(opt => {
-    opt.addEventListener('click', () => {
-        setLanguage(opt.dataset.value);
-        langSelector?.classList.remove('open');
+if (langBtn && langSelect) {
+    langBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        langSelect.classList.toggle('open');
+    });
+    document.addEventListener('click', () => langSelect.classList.remove('open'));
+}
+
+// All lang items (desktop dropdown + mobile)
+const allLangItems = document.querySelectorAll('.lang-item');
+allLangItems.forEach(item => {
+    item.addEventListener('click', () => {
+        setLanguage(item.dataset.lang);
+        langSelect?.classList.remove('open');
+        if (mobileMenu?.classList.contains('open')) {
+            hamburger?.classList.remove('open');
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        }
     });
 });
+
+// ─── i18n Engine ─────────────────────────────────────────────────────────────
+const langLabel = document.getElementById('langLabel');
+const langLabels = { ja: 'JA', en: 'EN', ko: 'KO', zh: 'ZH' };
 
 function setLanguage(lang) {
     const t = translations[lang];
@@ -114,16 +95,19 @@ function setLanguage(lang) {
         if (t[key] !== undefined) el.innerHTML = t[key];
     });
 
-    const labels = { ja: '日本語', en: 'English', ko: '한국어', zh: '中文' };
-    if (currentLabel) currentLabel.textContent = labels[lang] ?? lang;
+    if (langLabel) langLabel.textContent = langLabels[lang] || lang;
 
-    langOptions.forEach(o => o.classList.toggle('active', o.dataset.value === lang));
+    // Update active states on all lang items
+    allLangItems.forEach(o => {
+        o.classList.toggle('active', o.dataset.lang === lang);
+    });
+
     document.documentElement.lang = lang;
     localStorage.setItem('preferredLanguage', lang);
 }
 
 function initLanguage() {
-    const saved   = localStorage.getItem('preferredLanguage');
+    const saved = localStorage.getItem('preferredLanguage');
     const browser = navigator.language.slice(0, 2);
     const supported = ['ja', 'en', 'ko', 'zh'];
     const lang = (saved && supported.includes(saved)) ? saved
