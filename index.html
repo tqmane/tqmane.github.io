@@ -1,187 +1,190 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tqmane | Developer Portfolio</title>
+    <title>tqmane — iOS / Android Developer</title>
     <meta name="description" content="tqmane - iOS / Android Developer based in Tokyo.">
-    <meta name="theme-color" content="#0a0a0a">
+    <meta name="theme-color" content="#f4f2ed">
+    <script>
+        // Set theme before first paint (no FOUC)
+        (function () {
+            try {
+                var t = localStorage.getItem('theme');
+                if (t !== 'light' && t !== 'dark') {
+                    t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                }
+                document.documentElement.setAttribute('data-theme', t);
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
-    <!-- Noise overlay -->
-    <div class="noise"></div>
-
-    <!-- Navigation -->
-    <nav class="nav" id="nav">
-        <div class="nav-inner">
-            <a href="#" class="nav-logo">tqmane</a>
-            <div class="nav-right">
-                <a href="#about" class="nav-link" data-i18n="nav_about">About</a>
-                <a href="#works" class="nav-link" data-i18n="nav_works">Works</a>
-                <div class="nav-socials">
-                    <a href="https://github.com/tqmane" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i data-lucide="github"></i></a>
-                    <a href="https://x.com/t2aman1e" target="_blank" rel="noopener noreferrer" aria-label="X"><i data-lucide="twitter"></i></a>
-                </div>
-                <div class="lang-select" id="langSelect">
-                    <button class="lang-btn" id="langBtn">
-                        <i data-lucide="globe"></i>
-                        <span id="langLabel">JA</span>
-                    </button>
-                    <div class="lang-menu" id="langMenu">
-                        <button class="lang-item active" data-lang="ja">日本語</button>
-                        <button class="lang-item" data-lang="en">English</button>
-                        <button class="lang-item" data-lang="ko">한국어</button>
-                        <button class="lang-item" data-lang="zh">中文</button>
-                    </div>
-                </div>
-            </div>
-            <button class="nav-hamburger" id="hamburger" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Mobile menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#about" class="mobile-link" data-i18n="nav_about">About</a>
-        <a href="#works" class="mobile-link" data-i18n="nav_works">Works</a>
-        <div class="mobile-socials">
-            <a href="https://github.com/tqmane" target="_blank" rel="noopener noreferrer"><i data-lucide="github"></i></a>
-            <a href="https://x.com/t2aman1e" target="_blank" rel="noopener noreferrer"><i data-lucide="twitter"></i></a>
-        </div>
-        <div class="mobile-lang">
-            <button class="lang-item" data-lang="ja">JA</button>
+    <!-- Header -->
+    <header class="site-head">
+        <a href="#" class="wordmark">tqmane</a>
+        <span class="head-clock mono"><span class="clock-city">Tokyo</span> <span class="js-clock">--:--:--</span> JST</span>
+        <nav class="head-nav mono">
+            <a href="#works" data-i18n="nav_works">Works</a>
+            <a href="#about" data-i18n="nav_about">About</a>
+        </nav>
+        <button class="theme-toggle mono js-theme" aria-label="Toggle color theme">[--]</button>
+        <div class="head-lang mono">
+            <button class="lang-item active" data-lang="ja">JA</button>
             <button class="lang-item" data-lang="en">EN</button>
             <button class="lang-item" data-lang="ko">KO</button>
             <button class="lang-item" data-lang="zh">ZH</button>
         </div>
-    </div>
+    </header>
 
     <main>
 
         <!-- Hero -->
-        <section class="hero" id="hero">
-            <div class="hero-inner">
-                <div class="hero-badge anim-up" data-i18n="hero_badge">Developer / Tokyo</div>
-                <div class="hero-title-row anim-up delay-1">
-                    <h1 class="hero-title">
-                        <span data-i18n="hero_hi">Hi, I'm</span>
-                        <span class="hero-name">tqmane<span class="hero-dot">.</span></span>
-                    </h1>
+        <section class="hero">
+            <div class="hero-top reveal">
+                <div class="hero-id">
                     <img src="assets/images/icon.jpg" alt="tqmane" class="hero-avatar">
+                    <span class="hero-name">tqmane</span>
                 </div>
-                <p class="hero-desc anim-up delay-2" data-i18n="hero_desc">iOS / Android アプリ開発をメインに活動している、東京在住の17歳です。</p>
-                <div class="hero-cta anim-up delay-3">
-                    <a href="#works" class="btn-primary" data-i18n="hero_btn_works">Works</a>
-                    <a href="#about" class="btn-ghost" data-i18n="hero_btn_about">About me</a>
-                </div>
+                <p class="hero-intro" data-i18n="hero_desc">A 17-year-old iOS / Android developer based in Tokyo, building apps I find fun and useful.</p>
             </div>
-            <div class="hero-scroll">
-                <div class="hero-scroll-line"></div>
-            </div>
-        </section>
-
-        <!-- About -->
-        <section class="about" id="about">
-            <div class="section-inner">
-                <div class="section-label anim-up" data-i18n="nav_about">About</div>
-                <h2 class="section-heading anim-up" data-i18n="about_heading">Profile</h2>
-                <div class="about-grid">
-                    <div class="about-item anim-up">
-                        <span class="about-label" data-i18n="label_age">Age</span>
-                        <span class="about-value" data-i18n="val_age">17</span>
-                    </div>
-                    <div class="about-item anim-up">
-                        <span class="about-label" data-i18n="label_location">Location</span>
-                        <span class="about-value" data-i18n="val_location">Tokyo, Japan</span>
-                    </div>
-                    <div class="about-item anim-up">
-                        <span class="about-label" data-i18n="label_heritage">Heritage</span>
-                        <span class="about-value" data-i18n="val_heritage">Japanese & Korean</span>
-                    </div>
-                    <div class="about-item anim-up">
-                        <span class="about-label" data-i18n="label_role">Focus</span>
-                        <span class="about-value" data-i18n="val_role">iOS / Android Developer</span>
-                    </div>
-                </div>
+            <span class="hero-kicker mono reveal">// portfolio — 2026</span>
+            <h1 class="hero-title">
+                <span class="hero-l1 reveal d1">iOS &amp; Android</span>
+                <span class="hero-l2 reveal d2"><em>Developer</em></span>
+            </h1>
+            <div class="hero-foot mono reveal d3">
+                <span data-i18n="hero_loc">Based in Tokyo, Japan</span>
+                <span class="hero-scroll" data-i18n="hero_scroll">(Scroll)</span>
             </div>
         </section>
 
         <!-- Works -->
         <section class="works" id="works">
-            <div class="section-inner">
-                <div class="section-label anim-up" data-i18n="nav_works">Works</div>
-                <h2 class="section-heading anim-up" data-i18n="works_heading">Projects</h2>
-                <div class="works-grid">
+            <div class="sec-head reveal">
+                <h2 class="mono"><span class="sec-no">01</span><span class="sec-sep">/</span><span data-i18n="works_label">Selected Works</span> <sup>(4)</sup></h2>
+            </div>
+            <ul class="work-list">
 
-                    <!-- FilmSims -->
-                    <a href="https://tqmane.github.io/film_sims_web/" target="_blank" rel="noopener noreferrer" class="work-card anim-up">
-                        <div class="work-thumb">
+                <!-- 001 FilmSims -->
+                <li class="work work--full reveal">
+                    <a href="https://tqmane.github.io/film_sims_web/" target="_blank" rel="noopener noreferrer">
+                        <figure class="work-fig">
                             <img src="pictures/Filmsims.png" alt="FilmSims" loading="lazy">
-                        </div>
-                        <div class="work-body">
-                            <div class="work-tags">
-                                <span class="tag tag-ios">iOS</span>
-                                <span class="tag tag-android">Android</span>
-                            </div>
+                        </figure>
+                        <div class="work-cap">
+                            <span class="work-no mono">001</span>
                             <h3 class="work-title">FilmSims</h3>
-                            <p class="work-desc" data-i18n="proj_filmsims_desc">本格的なフィルムシミュレーションアプリ。多彩なプリセットとGPU処理で、スマホ写真にアナログの質感を。</p>
-                            <div class="work-arrow"><i data-lucide="arrow-up-right"></i></div>
+                            <span class="work-tags mono">iOS · Android</span>
+                            <svg class="work-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M9 7h8v8"/></svg>
                         </div>
+                        <p class="work-desc" data-i18n="proj_filmsims_desc">A film simulation app with rich presets and GPU-accelerated processing. Analog vibes for your phone photos.</p>
                     </a>
+                </li>
 
-                    <!-- iMons -->
-                    <a href="https://tqmane.github.io/iMons_web/" target="_blank" rel="noopener noreferrer" class="work-card anim-up">
-                        <div class="work-thumb">
+                <!-- 002 iMons -->
+                <li class="work work--half reveal">
+                    <a href="https://tqmane.github.io/iMons_web/" target="_blank" rel="noopener noreferrer">
+                        <figure class="work-fig">
                             <img src="pictures/iMons.png" alt="iMons" loading="lazy">
-                        </div>
-                        <div class="work-body">
-                            <div class="work-tags">
-                                <span class="tag tag-android">Android</span>
-                            </div>
+                        </figure>
+                        <div class="work-cap">
+                            <span class="work-no mono">002</span>
                             <h3 class="work-title">iMons</h3>
-                            <p class="work-desc" data-i18n="proj_imons_desc">6つのTwitter動画保存サイトを統合したAndroidアプリ。検索・ランキング・DL・お気に入り管理まで。</p>
-                            <div class="work-arrow"><i data-lucide="arrow-up-right"></i></div>
+                            <span class="work-tags mono">Android</span>
+                            <svg class="work-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M9 7h8v8"/></svg>
                         </div>
+                        <p class="work-desc" data-i18n="proj_imons_desc">An Android app unifying 6 Twitter video sites. Search, rankings, downloads, and bookmark management in one place.</p>
                     </a>
+                </li>
 
-                    <!-- HyperOS Apps Port -->
-                    <a href="https://www.opendesktop.org/p/2350582/" target="_blank" rel="noopener noreferrer" class="work-card anim-up">
-                        <div class="work-thumb">
+                <!-- 003 HyperOS Apps Port -->
+                <li class="work work--half reveal d1">
+                    <a href="https://www.opendesktop.org/p/2350582/" target="_blank" rel="noopener noreferrer">
+                        <figure class="work-fig">
                             <img src="pictures/HyperOS.png" alt="HyperOS Apps Port" loading="lazy">
-                        </div>
-                        <div class="work-body">
-                            <div class="work-tags">
-                                <span class="tag tag-android">Android</span>
-                            </div>
+                        </figure>
+                        <div class="work-cap">
+                            <span class="work-no mono">003</span>
                             <h3 class="work-title">HyperOS Apps Port</h3>
-                            <p class="work-desc" data-i18n="proj_hyperos_desc">Xiaomi HyperOS 3のシステムアプリを他デバイス向けに移植。動作を維持しながらの最適化。</p>
-                            <div class="work-arrow"><i data-lucide="arrow-up-right"></i></div>
+                            <span class="work-tags mono">Android</span>
+                            <svg class="work-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M9 7h8v8"/></svg>
                         </div>
+                        <p class="work-desc" data-i18n="proj_hyperos_desc">Porting Xiaomi HyperOS 3 system apps to other devices while preserving original functionality.</p>
                     </a>
+                </li>
 
-                    <!-- BeastLocator -->
-                    <a href="https://github.com/tqmane/BeastLocator_ios" target="_blank" rel="noopener noreferrer" class="work-card anim-up">
-                        <div class="work-thumb">
+                <!-- 004 BeastLocator -->
+                <li class="work work--full reveal">
+                    <a href="https://github.com/tqmane/BeastLocator_ios" target="_blank" rel="noopener noreferrer">
+                        <figure class="work-fig">
                             <img src="pictures/BeastLocator.png" alt="BeastLocator" loading="lazy">
-                        </div>
-                        <div class="work-body">
-                            <div class="work-tags">
-                                <span class="tag tag-ios">iOS</span>
-                            </div>
+                        </figure>
+                        <div class="work-cap">
+                            <span class="work-no mono">004</span>
                             <h3 class="work-title">BeastLocator</h3>
-                            <p class="work-desc" data-i18n="proj_beast_desc">野獣邸への方角と距離をリアルタイム表示するiOSアプリ。ウィジェット・Live Activity対応。</p>
-                            <div class="work-arrow"><i data-lucide="arrow-up-right"></i></div>
+                            <span class="work-tags mono">iOS</span>
+                            <svg class="work-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M9 7h8v8"/></svg>
                         </div>
+                        <p class="work-desc" data-i18n="proj_beast_desc">An iOS app that shows real-time direction and distance to the legendary Beast Mansion. Widget &amp; Live Activity support.</p>
                     </a>
+                </li>
 
-                </div>
+            </ul>
+        </section>
+
+        <!-- About -->
+        <section class="about" id="about">
+            <div class="sec-head reveal">
+                <h2 class="mono"><span class="sec-no">02</span><span class="sec-sep">/</span><span data-i18n="about_label">About</span></h2>
+            </div>
+            <div class="about-body">
+                <p class="about-text reveal" data-i18n="about_text">I'm a 17-year-old developer based in Tokyo, building iOS and Android apps I find fun and useful — with attention to every detail.</p>
+                <dl class="meta reveal d1">
+                    <div class="meta-row">
+                        <dt class="mono" data-i18n="label_location">Location</dt>
+                        <dd data-i18n="val_location">Tokyo, Japan</dd>
+                    </div>
+                    <div class="meta-row">
+                        <dt class="mono" data-i18n="label_age">Age</dt>
+                        <dd data-i18n="val_age">17</dd>
+                    </div>
+                    <div class="meta-row">
+                        <dt class="mono" data-i18n="label_heritage">Heritage</dt>
+                        <dd data-i18n="val_heritage">Japanese &amp; Korean</dd>
+                    </div>
+                    <div class="meta-row">
+                        <dt class="mono" data-i18n="label_focus">Focus</dt>
+                        <dd data-i18n="val_focus">iOS / Android Apps</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact">
+            <div class="sec-head reveal">
+                <h2 class="mono"><span class="sec-no">03</span><span class="sec-sep">/</span><span data-i18n="contact_label">Elsewhere</span></h2>
+            </div>
+            <div class="contact-list reveal">
+                <a href="https://github.com/tqmane" target="_blank" rel="noopener noreferrer" class="contact-row">
+                    <span>GitHub</span>
+                    <span class="contact-handle mono">@tqmane</span>
+                    <svg class="work-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M9 7h8v8"/></svg>
+                </a>
+                <a href="https://x.com/t2aman1e" target="_blank" rel="noopener noreferrer" class="contact-row">
+                    <span>X / Twitter</span>
+                    <span class="contact-handle mono">@t2aman1e</span>
+                    <svg class="work-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M9 7h8v8"/></svg>
+                </a>
             </div>
         </section>
 
@@ -189,13 +192,12 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-inner">
-            <p class="footer-copy" data-i18n="footer_copy">&copy; 2026 tqmane</p>
-            <div class="footer-links">
-                <a href="https://github.com/tqmane" target="_blank" rel="noopener noreferrer"><i data-lucide="github"></i></a>
-                <a href="https://x.com/t2aman1e" target="_blank" rel="noopener noreferrer"><i data-lucide="twitter"></i></a>
-            </div>
+        <div class="footer-fine mono">
+            <span data-i18n="footer_copy">© 2026 tqmane</span>
+            <span class="footer-clock"><span class="clock-city">Tokyo</span> <span class="js-clock">--:--:--</span> JST</span>
+            <span data-i18n="footer_credit">No frameworks — vanilla HTML / CSS / JS</span>
         </div>
+        <div class="footer-giant" aria-hidden="true">tqmane</div>
     </footer>
 
     <script src="assets/js/translations.js"></script>

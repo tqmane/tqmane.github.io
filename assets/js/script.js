@@ -1,90 +1,70 @@
-// Initialize Lucide Icons
-lucide.createIcons();
+// ─── Theme Toggle ────────────────────────────────────────────────────────────
+// Initial theme is set inline in <head> before first paint.
+const themeBtns = document.querySelectorAll('.js-theme');
 
-// ─── Scroll Animations ───────────────────────────────────────────────────────
-const animEls = document.querySelectorAll('.anim-up');
+function renderThemeBtn() {
+    const cur = document.documentElement.getAttribute('data-theme');
+    themeBtns.forEach(btn => {
+        btn.textContent = cur === 'dark' ? '[light]' : '[dark]';
+    });
+}
+
+themeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        document.querySelector('meta[name="theme-color"]')
+            ?.setAttribute('content', next === 'dark' ? '#131311' : '#f4f2ed');
+        renderThemeBtn();
+    });
+});
+
+// Follow OS preference live, unless the user picked one manually
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        renderThemeBtn();
+    }
+});
+
+renderThemeBtn();
+
+// ─── Tokyo Clock ─────────────────────────────────────────────────────────────
+const clockEls = document.querySelectorAll('.js-clock');
+const clockFmt = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Asia/Tokyo',
+    hour: '2-digit', minute: '2-digit', second: '2-digit',
+    hour12: false,
+});
+function tick() {
+    const now = clockFmt.format(new Date());
+    clockEls.forEach(el => { el.textContent = now; });
+}
+tick();
+setInterval(tick, 1000);
+
+// ─── Scroll Reveal ───────────────────────────────────────────────────────────
+const revealEls = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            entry.target.classList.add('in');
             observer.unobserve(entry.target);
         }
     });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-animEls.forEach(el => observer.observe(el));
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => observer.observe(el));
 
-// Trigger hero animations on load
+// Hero reveals on load
 window.addEventListener('load', () => {
-    document.querySelectorAll('.hero .anim-up').forEach(el => {
-        setTimeout(() => el.classList.add('visible'), 80);
+    document.querySelectorAll('.hero .reveal').forEach(el => {
+        setTimeout(() => el.classList.add('in'), 60);
     });
 });
 
-// ─── Active Nav Link on Scroll ───────────────────────────────────────────────
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-link');
-
-function updateActiveNav() {
-    let current = '';
-    sections.forEach(s => {
-        if (window.scrollY >= s.offsetTop - 200) current = s.id;
-    });
-    navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        link.classList.toggle('active', href === `#${current}`);
-    });
-}
-window.addEventListener('scroll', updateActiveNav, { passive: true });
-
-// ─── Hamburger / Mobile Menu ─────────────────────────────────────────────────
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-
-if (hamburger && mobileMenu) {
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('open');
-        mobileMenu.classList.toggle('open');
-        document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-    });
-
-    mobileMenu.querySelectorAll('.mobile-link').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('open');
-            mobileMenu.classList.remove('open');
-            document.body.style.overflow = '';
-        });
-    });
-}
-
-// ─── Language Selector (Desktop) ─────────────────────────────────────────────
-const langSelect = document.getElementById('langSelect');
-const langBtn = document.getElementById('langBtn');
-
-if (langBtn && langSelect) {
-    langBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        langSelect.classList.toggle('open');
-    });
-    document.addEventListener('click', () => langSelect.classList.remove('open'));
-}
-
-// All lang items (desktop dropdown + mobile)
+// ─── Language ────────────────────────────────────────────────────────────────
 const allLangItems = document.querySelectorAll('.lang-item');
-allLangItems.forEach(item => {
-    item.addEventListener('click', () => {
-        setLanguage(item.dataset.lang);
-        langSelect?.classList.remove('open');
-        if (mobileMenu?.classList.contains('open')) {
-            hamburger?.classList.remove('open');
-            mobileMenu.classList.remove('open');
-            document.body.style.overflow = '';
-        }
-    });
-});
-
-// ─── i18n Engine ─────────────────────────────────────────────────────────────
-const langLabel = document.getElementById('langLabel');
-const langLabels = { ja: 'JA', en: 'EN', ko: 'KO', zh: 'ZH' };
 
 function setLanguage(lang) {
     const t = translations[lang];
@@ -95,9 +75,6 @@ function setLanguage(lang) {
         if (t[key] !== undefined) el.innerHTML = t[key];
     });
 
-    if (langLabel) langLabel.textContent = langLabels[lang] || lang;
-
-    // Update active states on all lang items
     allLangItems.forEach(o => {
         o.classList.toggle('active', o.dataset.lang === lang);
     });
@@ -106,13 +83,17 @@ function setLanguage(lang) {
     localStorage.setItem('preferredLanguage', lang);
 }
 
+allLangItems.forEach(item => {
+    item.addEventListener('click', () => setLanguage(item.dataset.lang));
+});
+
 function initLanguage() {
     const saved = localStorage.getItem('preferredLanguage');
     const browser = navigator.language.slice(0, 2);
     const supported = ['ja', 'en', 'ko', 'zh'];
     const lang = (saved && supported.includes(saved)) ? saved
                : supported.includes(browser) ? browser
-               : 'ja';
+               : 'en';
     setLanguage(lang);
 }
 
